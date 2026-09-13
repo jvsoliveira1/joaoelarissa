@@ -111,6 +111,28 @@
 
     }
 
+    .availability-notice {
+      max-width: 800px;
+      margin: 35px auto 10px;
+      padding: 18px 20px;
+      background: #fffaf0;
+      border: 1px solid #e6d5b8;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .availability-notice strong {
+      color: #8a6a35;
+    }
+
+    .availability-notice p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #666;
+    }
+
     .topics-nav {
       position: sticky;
       top: 0;
@@ -182,6 +204,29 @@
 
     .card-wrapper:hover {
       transform: translateY(-3px);
+    }
+
+    .card-wrapper.chosen {
+      opacity: 0.55;
+    }
+
+    .card-wrapper.chosen:hover {
+      transform: none;
+    }
+
+    .btn.chosen-btn {
+      background: #999;
+    }
+
+    .btn.chosen-btn:hover {
+      background: #888;
+    }
+
+    .chosen-by {
+      font-size: 13px;
+      color: #777;
+      margin: 0 0 12px;
+      font-style: italic;
     }
 
     .card-wrapper h3 {
@@ -358,7 +403,18 @@
   <a href="#jogos">🎲 Jogos</a>
 </nav>
 
-<div class="container"></div>
+<div class="container">
+
+  <div class="availability-notice">
+    <strong>💡 Antes de escolher um presente</strong>
+    <p>
+      Para evitar que duas pessoas escolham o mesmo item,
+      pedimos que você <strong>confirme com os noivos</strong> se
+      o presente ainda está disponível antes de escolhê-lo.
+    </p>
+  </div>
+
+</div>
 
 <footer>
   Com amor, João & Larissa. ❤️
@@ -372,301 +428,371 @@ const gifts = {
   cozinha: [
     {
       name: "Cozedor elétrico",
-      link: "https://br.shp.ee/NAEMsRr6"
+      link: "https://br.shp.ee/NAEMsRr6",
+      status: "Simone Simas"
     },
     {
       name: "Moedor de café",
-      link: "https://br.shp.ee/jVV7Q8Yx"
+      link: "https://br.shp.ee/jVV7Q8Yx",
+      status: ""
     },
     {
       name: "Caminho de mesa",
-      link: "https://br.shp.ee/Ew4fm94C"
+      link: "https://br.shp.ee/Ew4fm94C",
+      status: ""
     },
     {
       name: "Gancho para box",
-      link: "https://br.shp.ee/vBnHvcaU"
+      link: "https://br.shp.ee/vBnHvcaU",
+      status: ""
     },
     {
       name: "Talheres de aço",
-      link: "https://br.shp.ee/NCCZG838"
+      link: "https://br.shp.ee/NCCZG838",
+      status: "Carol Meira"
     },
     {
       name: "Organizador de fios",
-      link: "https://br.shp.ee/9cULfu49"
+      link: "https://br.shp.ee/9cULfu49",
+      status: ""
     },
     {
       name: "Escorredor e secador de pratos",
-      link: "https://br.shp.ee/yyb9carC"
+      link: "https://br.shp.ee/yyb9carC",
+      status: "Sayonara"
     },
     {
       name: "Moedor multifuncional",
-      link: "https://br.shp.ee/jVV7Q8Yx"
+      link: "https://br.shp.ee/jVV7Q8Yx",
+      status: ""
     },
     {
       name: "Kit pratos fundos duralex",
-      link: "https://br.shp.ee/cCvQz7Fx"
+      link: "https://br.shp.ee/cCvQz7Fx",
+      status: ""
     },
     {
       name: "Porta shampoo",
-      link: "https://br.shp.ee/yajhYr7k"
+      link: "https://br.shp.ee/yajhYr7k",
+      status: ""
     },
     {
       name: "Espátula",
-      link: "https://br.shp.ee/C1VuHubH"
+      link: "https://br.shp.ee/C1VuHubH",
+      status: ""
     },
     {
       name: "Kit panos de prato",
-      link: "https://br.shp.ee/SPakDTba"
+      link: "https://br.shp.ee/SPakDTba",
+      status: ""
     },
     {
       name: "Mixer Philco",
-      link: "https://br.shp.ee/pgEP2iZs"
+      link: "https://br.shp.ee/pgEP2iZs",
+      status: ""
     },
     {
       name: "Kit assadeiras",
-      link: "https://br.shp.ee/o9syzgHo"
+      link: "https://br.shp.ee/o9syzgHo",
+      status: ""
     },
     {
       name: "Jogo 12 copos",
-      link: "https://br.shp.ee/fCdtGhgS"
+      link: "https://br.shp.ee/fCdtGhgS",
+      status: ""
     },
     {
       name: "Kit 2 formas assadeiras",
-      link: "https://br.shp.ee/w12thUnb"
+      link: "https://br.shp.ee/w12thUnb",
+      status: ""
     },
     {
       name: "Forma para bolo",
-      link: "https://br.shp.ee/W9NQioRK"
+      link: "https://br.shp.ee/W9NQioRK",
+      status: ""
     },
     {
       name: "Cafeteira italiana",
-      link: "https://br.shp.ee/rQY3Gfn7"
+      link: "https://br.shp.ee/rQY3Gfn7",
+      status: "Simone"
     },
     {
       name: "Caminho de mesa com babado",
-      link: "https://br.shp.ee/rb8L94k1"
+      link: "https://br.shp.ee/rb8L94k1",
+      status: "Josy"
     },
     {
       name: "Toalha de mesa com babado",
-      link: "https://br.shp.ee/2kqaaooJ"
+      link: "https://br.shp.ee/2kqaaooJ",
+      status: "Simone Barbosa"
     },
     {
       name: "Kit pote de vidro",
-      link: "https://br.shp.ee/WnetwoqW"
+      link: "https://br.shp.ee/WnetwoqW",
+      status: ""
     },
     {
       name: "Sanduicheira",
-      link: "https://br.shp.ee/A8JxvTjm"
+      link: "https://br.shp.ee/A8JxvTjm",
+      status: "Rebeca Luiz"
     },
     {
       name: "Kit 10 marmitas",
-      link: "https://br.shp.ee/a7XGmjag"
+      link: "https://br.shp.ee/a7XGmjag",
+      status: ""
     },
     {
       name: "Assadeira de vidro",
-      link: "https://br.shp.ee/yfUSXAfF"
+      link: "https://br.shp.ee/yfUSXAfF",
+      status: ""
     },
     {
       name: "Jogo de travessas de vidro",
-      link: "https://br.shp.ee/TN6UPGEy"
+      link: "https://br.shp.ee/TN6UPGEy",
+      status: ""
     },
     {
       name: "Kit 3 bacias e 3 peneiras",
-      link: "https://br.shp.ee/Mqi5R6Ya"
+      link: "https://br.shp.ee/Mqi5R6Ya",
+      status: ""
     },
     {
       name: "Colher de silicone",
-      link: "https://br.shp.ee/hqCQ4iPm"
+      link: "https://br.shp.ee/hqCQ4iPm",
+      status: ""
     },
     {
       name: "Espátula de silicone",
-      link: "https://br.shp.ee/NXj9gVLa"
+      link: "https://br.shp.ee/NXj9gVLa",
+      status: ""
     },
     {
       name: "Forma de pizza",
-      link: "https://br.shp.ee/VbCL7eih"
+      link: "https://br.shp.ee/VbCL7eih",
+      status: "Rebeca Alcântara"
     },
     {
       name: "Kit 3 panelas",
-      link: "https://br.shp.ee/pUyefUsu"
+      link: "https://br.shp.ee/pUyefUsu",
+      status: ""
     },
     {
       name: "Kit 3 frigideiras",
-      link: "https://br.shp.ee/mfwukSEF"
+      link: "https://br.shp.ee/mfwukSEF",
+      status: "Rebeca Alcântara e Estela"
     },
     {
       name: "Kit Sousplat",
-      link: "https://br.shp.ee/M4Qt4kzk"
+      link: "https://br.shp.ee/M4Qt4kzk",
+      status: ""
+    },
+    {
+      name: "Kit 6 potes com trava",
+      link: "https://br.shp.ee/G6tMfqK9",
+      status: ""
     }
   ],
 
   quarto: [
     {
       name: "Prateleira de decoração",
-      link: "https://br.shp.ee/bsdt5kq4"
+      link: "https://br.shp.ee/bsdt5kq4",
+      status: ""
     },
     {
       name: "Tábua de passar roupas",
-      link: "https://br.shp.ee/SYLSEdHX"
+      link: "https://br.shp.ee/SYLSEdHX",
+      status: "Rebeka"
     },
     {
       name: "Ferro de passar roupa",
-      link: "https://br.shp.ee/pGvo79HJ"
-    },
-    {
-      name: "Kit 6 potes com trava",
-      link: "https://br.shp.ee/G6tMfqK9"
+      link: "https://br.shp.ee/pGvo79HJ",
+      status: ""
     }
   ],
 
   banheiro: [
     {
       name: "Suporte de papel higiênico",
-      link: "https://br.shp.ee/fBWy3Koi"
+      link: "https://br.shp.ee/fBWy3Koi",
+      status: "Hellen"
     },
     {
       name: "Prateleira",
-      link: "https://br.shp.ee/C9Jta466"
+      link: "https://br.shp.ee/C9Jta466",
+      status: ""
     },
     {
       name: "Kit tapete algodão",
-      link: "https://br.shp.ee/VFFNSoPj"
+      link: "https://br.shp.ee/VFFNSoPj",
+      status: "Alexandre"
     },
     {
       name: "Kit tapete banheiro",
-      link: "https://br.shp.ee/tfS5xuEp"
+      link: "https://br.shp.ee/tfS5xuEp",
+      status: "Danilo & Ana Cíntia e Monique"
     },
     {
       name: "Kit jogo de banheiro",
-      link: "https://br.shp.ee/AkdRA8XK"
+      link: "https://br.shp.ee/AkdRA8XK",
+      status: ""
     },
     {
       name: "Kit 2 toalhas de banheiro",
-      link: "https://br.shp.ee/NKP5JywQ"
+      link: "https://br.shp.ee/NKP5JywQ",
+      status: "Silvia"
     },
     {
       name: "Jogo 4 toalhas",
-      link: "https://br.shp.ee/FXSuFeCE"
+      link: "https://br.shp.ee/FXSuFeCE",
+      status: "Josy Lima"
     },
     {
       name: "Assento sanitário",
-      link: "https://br.shp.ee/Mva2ty4M"
+      link: "https://br.shp.ee/Mva2ty4M",
+      status: ""
     }
   ],
 
   sala: [
     {
       name: "Mesa lateral",
-      link: "https://br.shp.ee/zeejj2Jb"
+      link: "https://br.shp.ee/zeejj2Jb",
+      status: ""
     },
     {
       name: "Quadro decorativo Salmos 23:6",
-      link: "https://br.shp.ee/a1rgFrqS"
+      link: "https://br.shp.ee/a1rgFrqS",
+      status: "Gabrielle Silva"
     },
     {
       name: "Quadro decorativo Isaías 41:20",
-      link: "https://br.shp.ee/jA7fHsAh"
+      link: "https://br.shp.ee/jA7fHsAh",
+      status: "Jucileide"
     },
     {
       name: "Quadro decorativo Colossenses 3:14",
-      link: "https://br.shp.ee/KRa7CopX"
+      link: "https://br.shp.ee/KRa7CopX",
+      status: ""
     },
     {
       name: "Mesa portátil para notebook",
-      link: "https://br.shp.ee/zDL2u3dL"
+      link: "https://br.shp.ee/zDL2u3dL",
+      status: ""
     },
     {
       name: "Capa de almofada",
-      link: "https://br.shp.ee/3DznYWHF"
+      link: "https://br.shp.ee/3DznYWHF",
+      status: ""
     },
     {
       name: "Cortina de porta",
-      link: "https://br.shp.ee/Ex1ntTX7"
+      link: "https://br.shp.ee/Ex1ntTX7",
+      status: ""
     },
     {
       name: "Cortina de janela",
-      link: "https://br.shp.ee/Ex1ntTX7"
+      link: "https://br.shp.ee/Ex1ntTX7",
+      status: ""
     }
   ],
 
   ferramentas: [
     {
       name: "Caixa de ferramentas",
-      link: "https://br.shp.ee/i3hMmvKZ"
+      link: "https://br.shp.ee/i3hMmvKZ",
+      status: ""
     },
     {
       name: "Parafusadeira/Furadeira",
-      link: "https://br.shp.ee/wuZbVrRs"
+      link: "https://br.shp.ee/wuZbVrRs",
+      status: ""
     },
     {
       name: "Kit de ferramentas",
-      link: "https://br.shp.ee/MSni8c5K"
+      link: "https://br.shp.ee/MSni8c5K",
+      status: "Gabi Oliveira"
     }
   ],
 
   area: [
     {
       name: "Mangueira",
-      link: "https://br.shp.ee/89ujHoEC"
+      link: "https://br.shp.ee/89ujHoEC",
+      status: ""
     },
     {
       name: "Varal com prendedores",
-      link: "https://br.shp.ee/jefr2bRj"
+      link: "https://br.shp.ee/jefr2bRj",
+      status: ""
     },
     {
       name: "Varal em espiral",
-      link: "https://br.shp.ee/WSnZi1BW"
+      link: "https://br.shp.ee/WSnZi1BW",
+      status: ""
     },
     {
       name: "Varal de tênis",
-      link: "https://br.shp.ee/JYo8GPda"
+      link: "https://br.shp.ee/JYo8GPda",
+      status: ""
     },
     {
       name: "Capa máquina",
-      link: "https://br.shp.ee/WK98wfBg"
+      link: "https://br.shp.ee/WK98wfBg",
+      status: ""
     }
   ],
 
   jogos: [
     {
       name: "Salty",
-      link: "https://a.co/d/0gElvT3k"
+      link: "https://a.co/d/0gElvT3k",
+      status: ""
     },
     {
       name: "Dogs' Day, Geeks N Orcs",
-      link: "https://a.co/d/04FSIi54"
+      link: "https://a.co/d/04FSIi54",
+      status: ""
     },
     {
       name: "Numa fria",
-      link: "https://a.co/d/0160sL8P"
+      link: "https://a.co/d/0160sL8P",
+      status: ""
     },
     {
       name: "Village green",
-      link: "https://a.co/d/0eMaAs0U"
+      link: "https://a.co/d/0eMaAs0U",
+      status: ""
     },
     {
       name: "Duplo risco",
-      link: "https://a.co/d/03HKldUT"
+      link: "https://a.co/d/03HKldUT",
+      status: ""
     },
     {
       name: "Coup",
-      link: "https://a.co/d/0iNDGKNM"
+      link: "https://a.co/d/0iNDGKNM",
+      status: ""
     },
     {
       name: "District Noir",
-      link: "https://a.co/d/05BM7PXt"
+      link: "https://a.co/d/05BM7PXt",
+      status: ""
     },
     {
       name: "Sea Salt & Paper",
-      link: "https://a.co/d/04WKQpCe"
+      link: "https://a.co/d/04WKQpCe",
+      status: ""
     },
     {
       name: "Ito",
-      link: "https://a.co/d/06IPW9rO"
+      link: "https://a.co/d/06IPW9rO",
+      status: ""
     },
     {
       name: "Azul",
-      link: "https://a.co/d/02P26MvO"
+      link: "https://a.co/d/02P26MvO",
+      status: ""
     }
   ]
 };
@@ -697,9 +823,12 @@ Object.entries(gifts).forEach(([category, items]) => {
 
     <div class="grid">
 
-      ${items.map(item => `
+    ${items.map(item => {
 
-        <div class="card-wrapper">
+      const chosen = item.status && item.status.trim() !== "";
+
+      return `
+        <div class="card-wrapper ${chosen ? "chosen" : ""}">
 
           <h3>${item.name}</h3>
 
@@ -709,18 +838,23 @@ Object.entries(gifts).forEach(([category, items]) => {
             </p>
           ` : ""}
 
+          ${chosen ? `
+            <p class="chosen-by">
+              🎁 Escolhido por ${item.status}
+            </p>
+          ` : ""}
+
           <a
-            class="btn"
+            class="btn ${chosen ? "chosen-btn" : ""}"
             href="${item.link}"
             target="_blank"
           >
-            Comprar presente
+            ${chosen ? "Ver presente" : "Comprar presente"}
           </a>
 
         </div>
-
-      `).join("")}
-
+      `;
+    }).join("")}
     </div>
 
   `;
