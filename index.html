@@ -133,6 +133,87 @@
       color: #666;
     }
 
+    /* Estilos da Seção do Pix */
+    .pix-card {
+      max-width: 480px;
+      margin: 30px auto 40px;
+      padding: 24px 20px;
+      background: white;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      border: 1px solid #eee;
+    }
+
+    .pix-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin: 0 0 8px;
+      color: #2c2c2c;
+    }
+
+    .pix-card p {
+      font-size: 14px;
+      color: #666;
+      margin: 0 0 18px;
+      line-height: 1.4;
+    }
+
+    .pix-qr-container {
+      margin: 0 auto 18px;
+      width: 180px;
+      height: 180px;
+      padding: 10px;
+      background: #fdfdfd;
+      border: 1px dashed #c9a96e;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pix-qr-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .pix-copy-wrapper {
+      display: flex;
+      gap: 8px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .pix-input {
+      flex: 1;
+      padding: 10px 12px;
+      font-size: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #f9f9f9;
+      color: #555;
+      outline: none;
+      text-overflow: ellipsis;
+    }
+
+    .pix-copy-btn {
+      background: #c9a96e;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .pix-copy-btn:hover {
+      background: #b8965c;
+    }
+
     .topics-nav {
       position: sticky;
       top: 0;
@@ -297,6 +378,10 @@
         padding: 20px 12px 50px;
       }
 
+      .pix-copy-wrapper {
+        flex-direction: column;
+      }
+
       .grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
@@ -394,6 +479,7 @@
 </header>
 
 <nav class="topics-nav">
+  <a href="#pix">✨ Presente em Pix</a>
   <a href="#cozinha">🍳 Cozinha</a>
   <a href="#banheiro">🛁 Banheiro</a>
   <a href="#sala">🛋️ Sala</a>
@@ -414,6 +500,20 @@
     </p>
   </div>
 
+  <div class="pix-card" id="pix">
+    <h2>Prefere nos ajudar com Pix?</h2>
+    <p>Caso prefira contribuição financeira para o nosso lar, escaneie o QR Code abaixo ou utilize a chave copia e cola.</p>
+    
+    <div class="pix-qr-container">
+      <img src="fotos/qrcode-pix.png" alt="QR Code Pix João e Larissa">
+    </div>
+
+    <div class="pix-copy-wrapper">
+      <input type="text" class="pix-input" id="pixKey" value="00020126580014br.gov.bcb.pix0136e056ad05-9f57-4ac2-b6fd-91fd2b369eb65204000053039865802BR5924ANDREIA LARISSA DE SOUSA6009Sao Paulo62230519daqr19959417113868163048465" readonly>
+      <button class="pix-copy-btn" onclick="copyPixKey()">Copiar Pix</button>
+    </div>
+  </div>
+
 </div>
 
 <footer>
@@ -423,6 +523,24 @@
 <div id="back-to-top">↑</div>
 
 <script>
+
+function copyPixKey() {
+  const pixInput = document.getElementById('pixKey');
+  pixInput.select();
+  pixInput.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+  navigator.clipboard.writeText(pixInput.value).then(() => {
+    const btn = document.querySelector('.pix-copy-btn');
+    const originalText = btn.innerText;
+    btn.innerText = "Copiado! ✓";
+    btn.style.background = "#5cb85c";
+
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.background = "#c9a96e";
+    }, 2500);
+  });
+}
 
 const gifts = {
   cozinha: [
