@@ -458,6 +458,187 @@
       }
     }
 
+
+
+    /* Botão fixo para abrir a confirmação */
+    .rsvp-open-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 25px;
+      z-index: 1001;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 30px;
+      background: #8a6a35;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      transition: 0.2s;
+    }
+
+    .rsvp-open-btn:hover {
+      background: #705329;
+      transform: translateY(-2px);
+    }
+
+    /* Fundo escuro e janela do modal */
+    .rsvp-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+    }
+
+    .rsvp-overlay.active {
+      display: flex;
+    }
+
+    .rsvp-modal {
+      position: relative;
+      width: 100%;
+      max-width: 430px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px 25px;
+      box-sizing: border-box;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+      animation: rsvpAppear 0.25s ease;
+    }
+
+    @keyframes rsvpAppear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .rsvp-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      border: none;
+      background: none;
+      color: #888;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .rsvp-modal h2 {
+      margin: 0 30px 10px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      color: #8a6a35;
+    }
+
+    .rsvp-description {
+      margin-bottom: 22px;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .rsvp-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .rsvp-name {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    .rsvp-options {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .rsvp-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px;
+      border: 1px solid #e5e5e5;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .rsvp-option:has(input:checked) {
+      border-color: #c9a96e;
+      background: #fffaf0;
+    }
+
+    .rsvp-option input {
+      accent-color: #8a6a35;
+      flex: 0 0 auto;
+    }
+
+    .rsvp-submit {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 9px;
+      background: #c9a96e;
+      color: white;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .rsvp-submit:hover {
+      background: #b8965c;
+    }
+
+    .rsvp-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .rsvp-message {
+      display: none;
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .rsvp-message.success {
+      display: block;
+      color: #287a42;
+    }
+
+    .rsvp-message.error {
+      display: block;
+      color: #b42318;
+    }
+
   </style>
 </head>
 
@@ -516,13 +697,235 @@
 
 </div>
 
+
+
+<!-- Botão fixo para abrir a confirmação de presença -->
+<button
+  type="button"
+  class="rsvp-open-btn"
+  id="rsvp-open-btn"
+>
+  💌 Confirmar presença
+</button>
+
+<!-- Modal de confirmação de presença -->
+<div
+  class="rsvp-overlay"
+  id="rsvp-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="rsvp-title"
+>
+  <div class="rsvp-modal">
+
+    <button
+      type="button"
+      class="rsvp-close"
+      id="rsvp-close-btn"
+      aria-label="Fechar formulário"
+    >
+      &times;
+    </button>
+
+    <h2 id="rsvp-title">João &amp; Larissa</h2>
+
+    <p class="rsvp-description">
+      Sua presença é muito especial para nós!
+      Por favor, confirme se poderemos contar com você
+      nesse dia tão importante.
+    </p>
+
+    <form id="rsvp-form">
+
+      <label class="rsvp-label" for="rsvp-name">
+        Seu nome completo
+      </label>
+
+      <input
+        type="text"
+        class="rsvp-name"
+        id="rsvp-name"
+        name="nome"
+        placeholder="Digite seu nome"
+        minlength="2"
+        maxlength="120"
+        autocomplete="name"
+        required
+      >
+
+      <span class="rsvp-label">
+        Você poderá comparecer?
+      </span>
+
+      <div class="rsvp-options">
+
+        <label class="rsvp-option">
+          <input
+            type="radio"
+            name="vai_comparecer"
+            value="true"
+            required
+          >
+          Sim, estarei presente! ❤️
+        </label>
+
+        <label class="rsvp-option">
+          <input
+            type="radio"
+            name="vai_comparecer"
+            value="false"
+          >
+          Infelizmente, não poderei comparecer.
+        </label>
+
+      </div>
+
+      <button
+        type="submit"
+        class="rsvp-submit"
+        id="rsvp-submit-btn"
+      >
+        Enviar confirmação
+      </button>
+
+      <p
+        class="rsvp-message"
+        id="rsvp-message"
+        role="status"
+        aria-live="polite"
+      ></p>
+
+    </form>
+  </div>
+</div>
+
 <footer>
   Com amor, João & Larissa. ❤️
 </footer>
 
 <div id="back-to-top">↑</div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="config.js"></script>
+
 <script>
+  const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+</script>
+
+<script>
+
+// =============================================
+// CONFIRMAÇÃO DE PRESENÇA - SUPABASE
+// =============================================
+
+const rsvpOverlay = document.getElementById("rsvp-overlay");
+const rsvpOpenBtn = document.getElementById("rsvp-open-btn");
+const rsvpCloseBtn = document.getElementById("rsvp-close-btn");
+const rsvpForm = document.getElementById("rsvp-form");
+const rsvpName = document.getElementById("rsvp-name");
+const rsvpSubmitBtn = document.getElementById("rsvp-submit-btn");
+const rsvpMessage = document.getElementById("rsvp-message");
+
+// Abre o modal e impede a rolagem da página ao fundo.
+function openRsvpModal() {
+  rsvpOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+  rsvpName.focus();
+}
+
+// Fecha o modal e restaura a rolagem da página.
+function closeRsvpModal() {
+  rsvpOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+rsvpOpenBtn.addEventListener("click", openRsvpModal);
+rsvpCloseBtn.addEventListener("click", closeRsvpModal);
+
+// Também permite fechar clicando fora da caixa do formulário.
+rsvpOverlay.addEventListener("click", (event) => {
+  if (event.target === rsvpOverlay) {
+    closeRsvpModal();
+  }
+});
+
+// Fecha o modal com a tecla ESC.
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && rsvpOverlay.classList.contains("active")) {
+    closeRsvpModal();
+  }
+});
+
+// Mostra o formulário automaticamente quando a página é carregada.
+openRsvpModal();
+
+// Recebe os dados e envia uma nova confirmação ao Supabase.
+rsvpForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  // Impede mais de um envio enquanto a requisição está em andamento.
+  if (rsvpSubmitBtn.disabled) {
+    return;
+  }
+
+  const nome = rsvpName.value.trim();
+  const resposta = rsvpForm.querySelector(
+    'input[name="vai_comparecer"]:checked'
+  );
+
+  // Validação equivalente à regra de tamanho configurada no banco.
+  if (nome.length < 2 || nome.length > 120 || !resposta) {
+    rsvpMessage.textContent = "Preencha seu nome e selecione uma resposta.";
+    rsvpMessage.className = "rsvp-message error";
+    return;
+  }
+
+  // O formulário fornece uma string; o banco espera um boolean.
+  const vaiComparecer = resposta.value === "true";
+
+  rsvpSubmitBtn.disabled = true;
+  rsvpSubmitBtn.textContent = "Enviando...";
+  rsvpMessage.textContent = "";
+  rsvpMessage.className = "rsvp-message";
+
+  try {
+    const { error } = await supabaseClient
+      .from("confirmacoes")
+      .insert([
+        {
+          nome: nome,
+          vai_comparecer: vaiComparecer
+        }
+      ]);
+
+    if (error) {
+      throw error;
+    }
+
+    rsvpMessage.textContent =
+      "Confirmação enviada com sucesso! Muito obrigado pela resposta. ❤️";
+    rsvpMessage.className = "rsvp-message success";
+
+    rsvpForm.reset();
+
+  } catch (error) {
+    console.error("Erro ao enviar confirmação:", error);
+
+    rsvpMessage.textContent =
+      "Não foi possível enviar sua confirmação. Verifique sua conexão e tente novamente.";
+    rsvpMessage.className = "rsvp-message error";
+
+  } finally {
+    rsvpSubmitBtn.disabled = false;
+    rsvpSubmitBtn.textContent = "Enviar confirmação";
+  }
+});
+
+
 
 function copyPixKey() {
   const pixInput = document.getElementById('pixKey');
