@@ -456,16 +456,6 @@
           0 4px 10px rgba(0,0,0,0.08);
 
       }
-
-      .rsvp-overlay {
-        padding: 12px;
-      }
-
-      .rsvp-modal {
-        width: 100%;
-        max-width: 430px;
-        padding: 25px 18px;
-      }
     }
 
 
@@ -518,7 +508,6 @@
       max-width: 430px;
       max-height: 90vh;
       overflow-y: auto;
-      overflow-x: hidden;
       padding: 30px 25px;
       box-sizing: border-box;
       background: #fff;
@@ -764,7 +753,40 @@ Por favor, informe seu nome e confirme abaixo se poderá participar. ❤️
         minlength="2"
         maxlength="120"
         autocomplete="name"
-        required
+      >
+
+      <span class="rsvp-label">
+        Acompanhantes (opcional — até 3 pessoas)
+      </span>
+
+      <input
+        type="text"
+        class="rsvp-name"
+        id="rsvp-acompanhante-1"
+        name="acompanhante_1"
+        placeholder="Nome do acompanhante 1"
+        maxlength="120"
+        autocomplete="off"
+      >
+
+      <input
+        type="text"
+        class="rsvp-name"
+        id="rsvp-acompanhante-2"
+        name="acompanhante_2"
+        placeholder="Nome do acompanhante 2"
+        maxlength="120"
+        autocomplete="off"
+      >
+
+      <input
+        type="text"
+        class="rsvp-name"
+        id="rsvp-acompanhante-3"
+        name="acompanhante_3"
+        placeholder="Nome do acompanhante 3"
+        maxlength="120"
+        autocomplete="off"
       >
 
       <span class="rsvp-label">
@@ -841,6 +863,11 @@ const rsvpOpenBtn = document.getElementById("rsvp-open-btn");
 const rsvpCloseBtn = document.getElementById("rsvp-close-btn");
 const rsvpForm = document.getElementById("rsvp-form");
 const rsvpName = document.getElementById("rsvp-name");
+const rsvpCompanions = [
+  document.getElementById("rsvp-acompanhante-1"),
+  document.getElementById("rsvp-acompanhante-2"),
+  document.getElementById("rsvp-acompanhante-3")
+];
 const rsvpSubmitBtn = document.getElementById("rsvp-submit-btn");
 const rsvpMessage = document.getElementById("rsvp-message");
 
@@ -886,14 +913,38 @@ rsvpForm.addEventListener("submit", async (event) => {
     return;
   }
 
-  const nome = rsvpName.value.trim();
+  // Sanitiza os nomes: remove caracteres de controle, espaços extras
+  // nas extremidades e reduz espaços repetidos.
+  function sanitizarNome(valor) {
+    return valor
+      .replace(/[\u0000-\u001F\u007F]/g, "")
+      .trim()
+      .replace(/\s+/g, " ");
+  }
+
+  const nome = sanitizarNome(rsvpName.value);
+  const acompanhantes = rsvpCompanions.map(campo => sanitizarNome(campo.value));
   const resposta = rsvpForm.querySelector(
     'input[name="vai_comparecer"]:checked'
   );
 
-  // Validação equivalente à regra de tamanho configurada no banco.
-  if (nome.length < 2 || nome.length > 120 || !resposta) {
-    rsvpMessage.textContent = "Preencha seu nome e selecione uma resposta.";
+  // Valida antes de qualquer chamada HTTP ao Supabase.
+  // O nome do convidado principal é obrigatório; acompanhantes são opcionais.
+  if (nome.length < 2 || nome.length > 120) {
+    rsvpMessage.textContent = "Por favor, informe o nome de pelo menos uma pessoa no campo do convidado principal.";
+    rsvpMessage.className = "rsvp-message error";
+    rsvpName.focus();
+    return;
+  }
+
+  if (acompanhantes.some(acompanhante => acompanhante.length === 1 || acompanhante.length > 120)) {
+    rsvpMessage.textContent = "Cada nome de acompanhante deve ter pelo menos 2 caracteres e no máximo 120.";
+    rsvpMessage.className = "rsvp-message error";
+    return;
+  }
+
+  if (!resposta) {
+    rsvpMessage.textContent = "Selecione se você poderá comparecer.";
     rsvpMessage.className = "rsvp-message error";
     return;
   }
@@ -912,6 +963,9 @@ rsvpForm.addEventListener("submit", async (event) => {
       .insert([
         {
           nome: nome,
+          acompanhante_1: acompanhantes[0] || null,
+          acompanhante_2: acompanhantes[1] || null,
+          acompanhante_3: acompanhantes[2] || null,
           vai_comparecer: vaiComparecer
         }
       ]);
@@ -938,8 +992,6 @@ rsvpForm.addEventListener("submit", async (event) => {
     rsvpSubmitBtn.textContent = "Enviar confirmação";
   }
 });
-
-
 
 function copyPixKey() {
   const pixInput = document.getElementById('pixKey');
