@@ -211,38 +211,13 @@ const gifts = {
       status: ""
     },
     {
-      name: "Caminho de mesa de algodão",
-      link: "https://br.shp.ee/DJKYg8Su",
-      status: ""
-    },
-    {
-      name: "Caminho de mesa pompom",
-      link: "https://br.shp.ee/ujessBBq",
-      status: ""
-    },
-    {
-      name: "Caminho de mesa bordado com flores",
-      link: "https://br.shp.ee/uhzhgvtZ",
-      status: ""
-    },
-    {
       name: "Toalha de mesa com babado",
       link: "https://br.shp.ee/2kqaaooJ",
       status: ""
     },
     {
-      name: "Caminho de mesa artesanal",
-      link: "https://br.shp.ee/m3RwMgbo",
-      status: ""
-    },
-    {
       name: "Kit 3 bacias e 3 peneiras",
       link: "https://br.shp.ee/Mqi5R6Ya",
-      status: ""
-    },
-    {
-      name: "Jogo americano",
-      link: "https://br.shp.ee/M4Qt4kzk",
       status: ""
     },
     {
