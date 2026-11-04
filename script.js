@@ -325,11 +325,6 @@ const gifts = {
       status: ""
     },
     {
-      name: "Varal com prendedores",
-      link: "https://br.shp.ee/jefr2bRj",
-      status: ""
-    },
-    {
       name: "Varal em espiral",
       link: "https://br.shp.ee/WSnZi1BW",
       status: ""
