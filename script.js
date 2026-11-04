@@ -270,11 +270,6 @@ const gifts = {
       status: ""
     },
     {
-      name: "MOP",
-      link: "https://br.shp.ee/cK18ZjsW",
-      status: ""
-    },
-    {
       name: "Kit saco a vácuo",
       link: "https://br.shp.ee/nERasibG",
       status: ""
