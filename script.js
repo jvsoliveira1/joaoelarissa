@@ -171,11 +171,6 @@ const gifts = {
       status: "Hellen"
     },
     {
-      name: "Panela de pressão",
-      link: "https://br.shp.ee/6dH1GebS",
-      status: ""
-    },
-    {
       name: "Kit porta guardanapos",
       link: "https://br.shp.ee/1upnbxZ5",
       status: ""
