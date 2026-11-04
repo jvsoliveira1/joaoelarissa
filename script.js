@@ -166,11 +166,6 @@ function copyPixKey() {
 const gifts = {
   cozinha: [
     {
-      name: "Moedor de café",
-      link: "https://br.shp.ee/jVV7Q8Yx",
-      status: "Hellen"
-    },
-    {
       name: "Kit porta guardanapos",
       link: "https://br.shp.ee/1upnbxZ5",
       status: ""
