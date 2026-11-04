@@ -206,11 +206,6 @@ const gifts = {
       status: ""
     },
     {
-      name: "Toalha de mesa com babado",
-      link: "https://br.shp.ee/2kqaaooJ",
-      status: ""
-    },
-    {
       name: "Kit 3 bacias e 3 peneiras",
       link: "https://br.shp.ee/Mqi5R6Ya",
       status: ""
