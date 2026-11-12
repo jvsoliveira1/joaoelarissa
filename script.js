@@ -275,11 +275,6 @@ const gifts = {
       status: ""
     },
     {
-      name: "Kit organizador de acrílico",
-      link: "https://br.shp.ee/XfUaHYYK",
-      status: ""
-    },
-    {
       name: "Extensão",
       link: "https://br.shp.ee/nKUnkNkG",
       status: ""
