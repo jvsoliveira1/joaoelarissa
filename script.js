@@ -166,43 +166,8 @@ function copyPixKey() {
 const gifts = {
   cozinha: [
     {
-      name: "Kit porta guardanapos",
-      link: "https://br.shp.ee/1upnbxZ5",
-      status: ""
-    },
-    {
       name: "Organizador de pratos",
       link: "https://br.shp.ee/DU2VEX3B",
-      status: ""
-    },
-    {
-      name: "Organizador giratório",
-      link: "https://br.shp.ee/ZRgw6vhp",
-      status: ""
-    },
-    {
-      name: "Kit 6 porta guardanapos",
-      link: "https://br.shp.ee/8RFp5e2K",
-      status: ""
-    },
-    {
-      name: "Anel decorativo de porta guardanapos",
-      link: "https://br.shp.ee/QjhFYuu5",
-      status: ""
-    },
-    {
-      name: "Talheres de aço",
-      link: "https://br.shp.ee/NCCZG838",
-      status: ""
-    },
-    {
-      name: "Organizador de fios",
-      link: "https://br.shp.ee/9cULfu49",
-      status: ""
-    },
-    {
-      name: "Prateleira",
-      link: "https://br.shp.ee/yajhYr7k",
       status: ""
     },
     {
@@ -219,11 +184,6 @@ const gifts = {
 
   quarto: [
     {
-      name: "Prateleira de decoração",
-      link: "https://br.shp.ee/bsdt5kq4",
-      status: ""
-    },
-    {
       name: "Protetor para colchão",
       link: "https://br.shp.ee/6HF1FggE",
       status: ""
@@ -232,23 +192,8 @@ const gifts = {
 
   sala: [
     {
-      name: "Quadro decorativo Salmos 23:6",
-      link: "https://br.shp.ee/a1rgFrqS",
-      status: ""
-    },
-    {
       name: "Puff baú bege",
       link: "https://br.shp.ee/MnFNpdPS",
-      status: ""
-    },
-    {
-      name: "Quadro decorativo Isaías 41:20",
-      link: "https://br.shp.ee/jA7fHsAh",
-      status: ""
-    },
-    {
-      name: "Quadro decorativo Colossenses 3:14",
-      link: "https://br.shp.ee/KRa7CopX",
       status: ""
     },
     {
@@ -265,11 +210,6 @@ const gifts = {
 
   diversos: [
     {
-      name: "Mangueira",
-      link: "https://br.shp.ee/89ujHoEC",
-      status: ""
-    },
-    {
       name: "Kit saco a vácuo",
       link: "https://br.shp.ee/nERasibG",
       status: ""
@@ -277,16 +217,6 @@ const gifts = {
     {
       name: "Extensão",
       link: "https://br.shp.ee/nKUnkNkG",
-      status: ""
-    },
-    {
-      name: "Varal em espiral",
-      link: "https://br.shp.ee/WSnZi1BW",
-      status: ""
-    },
-    {
-      name: "Varal de tênis",
-      link: "https://br.shp.ee/JYo8GPda",
       status: ""
     },
     {
